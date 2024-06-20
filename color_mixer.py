@@ -15,7 +15,10 @@ root.resizable(0,0)
 
 
 #GUI Layout
-
+input_frame = tkinter.LabelFrame(root)
+output_frame = tkinter.LabelFrame(root)
+input_frame.pack()
+output_frame.pack()
 
 #Run app
 root.mainloop()
