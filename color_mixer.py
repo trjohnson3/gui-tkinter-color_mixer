@@ -19,7 +19,7 @@ def get_red(slider_value):
     #If hex value is single didgit, prepend a 0
     while len(red_value) < 2:
         red_value = '0' + str(red_value)
-    print(red_value)
+    update_color()
 
 
 def get_green(slider_value):
@@ -27,12 +27,12 @@ def get_green(slider_value):
     Scale value is autoupdated when moved, so it needs a parameter for it.'''
     global green_value
     #Turn slider value into an int and hex, strip leading characters so only 2 remain
-    red_value = hex(int(slider_value))
+    green_value = hex(int(slider_value))
     green_value = green_value.strip('0x')
     #If hex value is single didgit, prepend a 0
     while len(green_value) < 2:
         green_value = '0' + str(green_value)
-    print(green_value)
+    update_color()
 
 
 def get_blue(slider_value):
@@ -45,7 +45,16 @@ def get_blue(slider_value):
     #If hex value is single didgit, prepend a 0
     while len(blue_value) < 2:
         blue_value = '0' + str(blue_value)
-    print(blue_value)
+    update_color()
+    
+
+def update_color():
+    '''update current color box based on slider values. Display tuple
+    and hex value of current color'''
+    #Make the color box smaller than the original due internal padding on original
+    color_box = tkinter.Label(input_frame, bg='#' + red_value + green_value + blue_value,
+                              width=15, height=6)
+    color_box.grid(row=1, column=3, columnspan=2, padx=35, pady=10)
 
 
 
