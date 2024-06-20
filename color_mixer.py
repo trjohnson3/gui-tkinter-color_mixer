@@ -4,7 +4,7 @@ from tkinter import BOTH
 #Define window
 root = tkinter.Tk()
 root.title('Color Mixer')
-root.iconbitmap('./images/palette.ico')
+root.iconbitmap('./images/color.ico')
 root.geometry('450x500')
 root.resizable(0,0)
 
