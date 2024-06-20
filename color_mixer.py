@@ -1,5 +1,5 @@
 import tkinter
-from tkinter import BOTH
+from tkinter import BOTH, IntVar, DISABLED
 
 #Define window
 root = tkinter.Tk()
@@ -21,7 +21,7 @@ output_frame = tkinter.LabelFrame(root, padx=5, pady=5)
 input_frame.pack(fill=BOTH, expand=True, padx=5, pady=5)
 output_frame.pack(fill=BOTH, expand=True, padx=5, pady=5)
 
-#Setitng up input frame
+#Setting up input frame
 #Create label, button, slidder for each RGB
 red_label = tkinter.Label(input_frame, text='R')
 red_slider = tkinter.Scale(input_frame, from_=0, to=255)
@@ -65,6 +65,28 @@ color_box.grid(row=1, column=3, columnspan=2, padx=35, pady=10, ipadx=10, ipady=
 color_tuple.grid(row=2, column=3, columnspan=2)
 color_hex.grid(row=3, column=3, columnspan=2)
 
+#Setup output frame
+#Initialize a dictionary to hold all stored colors
+stored_colors = {}
+stored_color = IntVar()
+#Create radio buttons to select stores values and populate rows with selected values
+for i in range(6):
+    radio = tkinter.Radiobutton(output_frame, variable=stored_color, value=i)
+    radio.grid(row=i, column=0, sticky='W')
+    recall_button = tkinter.Button(output_frame, text='Recall Color', state=DISABLED)
+    new_color_tuple = tkinter.Label(output_frame, text='(255), (255), (255)')
+    new_color_hex = tkinter.Label(output_frame, text='#FFFFFF')
+    new_color_black_box = tkinter.Label(output_frame, bg='black', width=3, height=1)
+    new_color_box = tkinter.Label(output_frame, bg='white', width=3, height=1)
+
+    recall_button.grid(row=i, column=1, padx=20)
+    new_color_tuple.grid(row=i, column=2, padx=20)
+    new_color_hex.grid(row=i, column=3, padx=20)
+    new_color_black_box.grid(row=i, column=4, pady=2, ipadx=5, ipady=5)
+    new_color_box.grid(row=i, column=4)
+
+    #.cget() returns teh value of a specific option. Store the text value for tuple and hex.
+    stored_colors[stored_color.get()] = [new_color_tuple.cget('text'), new_color_hex.cget('text')]
 
 #Run app
 root.mainloop()
