@@ -69,6 +69,44 @@ def set_color(red_value, green_value, blue_value):
     blue_slider.set(blue_value)
 
 
+def store_color():
+    '''Store current color tuple value and display color'''
+    #Makes sure that all values have 3 digits for formatting
+    red = str(red_slider.get())
+    while len(red) < 3:
+        red = '0' + red
+    green = str(green_slider.get())
+    while len(green) < 3:
+        red = '0' + green
+    blue = str(blue_slider.get())
+    while len(blue) < 3:
+        blue = '0' + blue
+    #Keep a reference of the current color
+    stored_red = red_slider.get()
+    stored_green = green_slider.get()
+    stored_blue = blue_slider.get()
+    #Create new widgets for the stored color
+    recall_button = tkinter.Button(output_frame, text='Recall Color', command=lambda:set_color(
+        stored_red,
+        stored_green,
+        stored_blue
+    ))
+    color_tuple = tkinter.Label(output_frame, text='(' + red + '), '
+                       + '(' + green + '), '
+                       + '(' + blue + ')')
+    color_hex = tkinter.Label(output_frame, text='#' + red_value + green_value + blue_value)
+    color_black_box = tkinter.Label(output_frame, bg='black', width=3, height=1)
+    color_box = tkinter.Label(output_frame, bg='#' + red_value + green_value + blue_value,
+                                  width=3, height=1)
+    #Put new widgets on screen
+    recall_button.grid(row=stored_color.get(), column=1, padx=20)
+    color_tuple.grid(row=stored_color.get(), column=2, padx=20)
+    color_hex.grid(row=stored_color.get(), column=3, padx=20)
+    color_black_box.grid(row=stored_color.get(), column=4, pady=2, ipadx=5, ipady=5)
+    color_box.grid(row=stored_color.get(), column=4)
+    
+
+
 #GUI Layout
 input_frame = tkinter.LabelFrame(root, padx=5, pady=5)
 output_frame = tkinter.LabelFrame(root, padx=5, pady=5)
@@ -93,7 +131,7 @@ cyan_button = tkinter.Button(input_frame, text='Cyan', command=lambda:set_color(
 magenta_button = tkinter.Button(input_frame, text='Magenta', command=lambda:set_color(255, 0, 255))
 
 #Create utility buttons
-store_button = tkinter.Button(input_frame, text='Store Color')
+store_button = tkinter.Button(input_frame, text='Store Color', command=store_color)
 save_button = tkinter.Button(input_frame, text='Save')
 quit_button = tkinter.Button(input_frame, text='Quit', command=root.destroy)
 
