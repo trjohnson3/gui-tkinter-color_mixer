@@ -36,6 +36,12 @@ blue_button = tkinter.Button(input_frame, text='Blue')
 yellow_button = tkinter.Button(input_frame, text='Yellow')
 cyan_button = tkinter.Button(input_frame, text='Cyan')
 magenta_button = tkinter.Button(input_frame, text='Magenta')
+#Create utility buttons
+store_button = tkinter.Button(input_frame, text='Store Color')
+save_button = tkinter.Button(input_frame, text='Save')
+quit_button = tkinter.Button(input_frame, text='Quit', command=root.destroy)
+#
+
 
 #Run app
 root.mainloop()
