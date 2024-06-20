@@ -40,8 +40,22 @@ magenta_button = tkinter.Button(input_frame, text='Magenta')
 store_button = tkinter.Button(input_frame, text='Store Color')
 save_button = tkinter.Button(input_frame, text='Save')
 quit_button = tkinter.Button(input_frame, text='Quit', command=root.destroy)
-#
-
+#Put widgets on input frame
+red_label.grid(row=0, column=0)
+red_slider.grid(row=1, column=0)
+red_button.grid(row=2, column=0)
+green_label.grid(row=0, column=1)
+green_slider.grid(row=1, column=1)
+green_button.grid(row=2, column=1)
+blue_label.grid(row=0, column=2)
+blue_slider.grid(row=1, column=2)
+blue_button.grid(row=2, column=2)
+yellow_button.grid(row=3, column=0)
+cyan_button.grid(row=3, column=1)
+magenta_button.grid(row=3, column=2)
+store_button.grid(row=3, column=3)
+save_button.grid(row=3, column=4)
+quit_button.grid(row=3, column=5)
 
 #Run app
 root.mainloop()
