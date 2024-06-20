@@ -1,4 +1,5 @@
 import tkinter
+from tkinter import BOTH
 
 #Define window
 root = tkinter.Tk()
@@ -17,8 +18,8 @@ root.resizable(0,0)
 #GUI Layout
 input_frame = tkinter.LabelFrame(root)
 output_frame = tkinter.LabelFrame(root)
-input_frame.pack()
-output_frame.pack()
+input_frame.pack(fill=BOTH, expand=True, padx=5,pady=5)
+output_frame.pack(fill=BOTH, expand=True, padx=5,pady=5)
 
 #Run app
 root.mainloop()
