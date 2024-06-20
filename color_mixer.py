@@ -55,7 +55,18 @@ def update_color():
     color_box = tkinter.Label(input_frame, bg='#' + red_value + green_value + blue_value,
                               width=15, height=6)
     color_box.grid(row=1, column=3, columnspan=2, padx=35, pady=10)
+    #Display hex and tuple values
+    color_tuple.config(text='(' + str(red_slider.get()) + ') ,'
+                       + '(' + str(green_slider.get()) + ') ,'
+                       + '(' + str(blue_slider.get()) + ')')
+    color_hex.config(text='#' + red_value + green_value + blue_value)
 
+
+def set_color(red_value, green_value, blue_value):
+    '''Set slider values equal to red.'''
+    red_slider.set(red_value)
+    green_slider.set(green_value)
+    blue_slider.set(blue_value)
 
 
 #GUI Layout
@@ -68,18 +79,18 @@ output_frame.pack(fill=BOTH, expand=True, padx=5, pady=5)
 #Create label, button, slidder for each RGB
 red_label = tkinter.Label(input_frame, text='R')
 red_slider = tkinter.Scale(input_frame, from_=0, to=255, command=get_red)
-red_button = tkinter.Button(input_frame, text='Red')
+red_button = tkinter.Button(input_frame, text='Red', command=lambda:set_color(255, 0, 0))
 green_label = tkinter.Label(input_frame, text='G')
 green_slider = tkinter.Scale(input_frame, from_=0, to=255, command=get_green)
-green_button = tkinter.Button(input_frame, text='Green')
+green_button = tkinter.Button(input_frame, text='Green', command=lambda:set_color(0, 255, 0))
 blue_label = tkinter.Label(input_frame, text='B')
 blue_slider = tkinter.Scale(input_frame, from_=0, to=255, command=get_blue)
-blue_button = tkinter.Button(input_frame, text='Blue')
+blue_button = tkinter.Button(input_frame, text='Blue', command=lambda:set_color(0, 0, 255))
 
 #Create buttons for comp. colors
-yellow_button = tkinter.Button(input_frame, text='Yellow')
-cyan_button = tkinter.Button(input_frame, text='Cyan')
-magenta_button = tkinter.Button(input_frame, text='Magenta')
+yellow_button = tkinter.Button(input_frame, text='Yellow', command=lambda:set_color(255, 255, 0))
+cyan_button = tkinter.Button(input_frame, text='Cyan', command=lambda:set_color(0, 255, 255))
+magenta_button = tkinter.Button(input_frame, text='Magenta', command=lambda:set_color(255, 0, 255))
 
 #Create utility buttons
 store_button = tkinter.Button(input_frame, text='Store Color')
@@ -136,6 +147,11 @@ for i in range(6):
 
     #.cget() returns teh value of a specific option. Store the text value for tuple and hex.
     stored_colors[stored_color.get()] = [new_color_tuple.cget('text'), new_color_hex.cget('text')]
+
+#Initialize starting values for color box display
+red_value = '00'
+green_value = '00'
+blue_value = '00'
 
 #Run app
 root.mainloop()
