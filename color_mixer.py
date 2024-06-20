@@ -56,6 +56,15 @@ magenta_button.grid(row=3, column=2, padx=1, pady=1, sticky='WE')
 store_button.grid(row=4, column=0, columnspan=3, padx=1, pady=1, sticky='WE')
 save_button.grid(row=4, column=3, padx=1, pady=1, sticky='WE')
 quit_button.grid(row=4, column=4, padx=1, pady=1, sticky='WE')
+#Create color box and color labels
+color_box = tkinter.Label(input_frame, bg='black', height=6, width=15)
+color_tuple = tkinter.Label(input_frame, text='(0), (0), (0)')
+color_hex = tkinter.Label(input_frame, text='#000000')
+#Put on the frame
+color_box.grid(row=1, column=3, columnspan=2, padx=35, pady=10, ipadx=10, ipady=10)
+color_tuple.grid(row=2, column=3, columnspan=2)
+color_hex.grid(row=3, column=3, columnspan=2)
+
 
 #Run app
 root.mainloop()
