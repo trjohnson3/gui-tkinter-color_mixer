@@ -26,14 +26,16 @@ output_frame.pack(fill=BOTH, expand=True, padx=5,pady=5)
 red_label = tkinter.Label(input_frame, text='R')
 red_slider = tkinter.Scale(input_frame, from_=0, to=255)
 red_button = tkinter.Button(input_frame, text='Red')
-
 green_label = tkinter.Label(input_frame, text='G')
 green_slider = tkinter.Scale(input_frame, from_=0, to=255)
 green_button = tkinter.Button(input_frame, text='Green')
-
 blue_label = tkinter.Label(input_frame, text='B')
 blue_slider = tkinter.Scale(input_frame, from_=0, to=255)
 blue_button = tkinter.Button(input_frame, text='Blue')
+#Create buttons for comp. colors
+yellow_button = tkinter.Button(input_frame, text='Yellow')
+cyan_button = tkinter.Button(input_frame, text='Cyan')
+magenta_button = tkinter.Button(input_frame, text='Magenta')
 
 #Run app
 root.mainloop()
