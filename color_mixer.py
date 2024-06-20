@@ -4,10 +4,11 @@ import tkinter
 root = tkinter.Tk()
 root.title('Color Mixer')
 root.iconbitmap('./images/palette.ico')
-root.geometry('400x600')
+root.geometry('450x500')
 root.resizable(0,0)
 
 #Define fonts and colors
+#None, using system defaults
 
 
 #Define functions
